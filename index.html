@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>叶舟咨询 — 企业综合服务与人才教育培养</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..800&family=Noto+Sans+SC:wght@300..800&family=Instrument+Serif:opsz@9..40&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-d:'DM Sans','Noto Sans SC','Microsoft YaHei',sans-serif;
+  --font-b:'DM Sans','Noto Sans SC','Microsoft YaHei',sans-serif;
+  --font-s:'Instrument Serif','Georgia',serif;
+  --nv:oklch(0.15 0.045 264); --nv-l:oklch(0.26 0.08 264);
+  --nv-m:oklch(0.32 0.14 264);
+  --bl:oklch(0.55 0.22 254); --bl-l:oklch(0.72 0.14 254);
+  --bl-d:oklch(0.35 0.20 254);
+  --gd:oklch(0.72 0.18 82); --gd-l:oklch(0.86 0.10 82);
+  --gd-p:oklch(0.92 0.06 82);
+  --su:oklch(0.97 0.005 82); --su-a:oklch(0.92 0.006 82);
+  --cd:#fff;
+  --bd:oklch(0.88 0.008 82); --bd-h:oklch(0.78 0.012 82);
+  --t1:oklch(0.15 0.02 264); --t2:oklch(0.42 0.02 264);
+  --t3:oklch(0.58 0.015 264);
+  --i1:oklch(0.95 0.005 82); --i2:oklch(0.72 0.015 82);
+  --gn:oklch(0.58 0.20 158); --pu:oklch(0.52 0.22 288);
+  --rd:oklch(0.58 0.22 28); --te:oklch(0.55 0.20 182);
+  --r-sm:8px; --r:12px; --r-lg:20px;
+  --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px;
+  --s8:32px; --s10:40px; --s12:48px; --s14:56px; --s16:64px;
+  --s20:80px; --s24:96px; --s32:128px;
+  --mx:1200px; --hh:64px;
+  --e:cubic-bezier(0.16,1,0.3,1);
+  --df:120ms; --ds:250ms; --dm:500ms;
+  --sh:0 4px 12px rgba(0,0,0,0.03),0 1px 4px rgba(0,0,0,0.02);
+  --sh-l:0 8px 28px rgba(0,0,0,0.04),0 2px 8px rgba(0,0,0,0.02);
+  --sh-xl:0 20px 60px rgba(0,0,0,0.06);
+}
+@media(prefers-reduced-motion){*,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + var(--s6))}
+body{font-family:var(--font-b);color:var(--t1);background:var(--su);overflow-x:hidden;line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
+body::-webkit-scrollbar{width:6px}
+body::-webkit-scrollbar-track{background:transparent}
+body::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+body::-webkit-scrollbar-thumb:hover{background:var(--t3)}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--mx);margin:0 auto;padding:0 var(--s6)}
+
+/* ==== Header (kept) ==== */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);background:oklch(0.97 0.005 82 / 0.80);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid transparent;transition:border-color var(--ds) var(--e),box-shadow var(--ds) var(--e)}
+.header.scrolled{border-color:var(--bd);box-shadow:0 1px 6px rgba(0,0,0,0.03)}
+.h-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--mx);margin:0 auto;padding:0 var(--s6)}
+.logo{display:flex;align-items:center;gap:var(--s2);font-size:18px;font-weight:750;color:var(--nv);letter-spacing:-0.02em}
+.logo-d{width:6px;height:6px;border-radius:50%;background:var(--gd);margin-right:2px}
+.logo-a{color:var(--bl)}
+.nav{display:flex;gap:2px}
+.nav a{padding:var(--s2) var(--s3);font-size:13.5px;font-weight:500;color:var(--t2);border-radius:var(--r-sm);transition:all var(--df) var(--e)}
+.nav a:hover{color:var(--t1);background:oklch(0 0 0 / 0.04)}
+.mob-toggle{display:none;background:none;border:none;width:36px;height:36px;cursor:pointer;border-radius:var(--r-sm);font-size:20px;color:var(--nv);transition:background var(--df)}
+.mob-toggle:hover{background:oklch(0 0 0 / 0.04)}
+
+/* ==== HERO (kept exactly) ==== */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding-top:var(--hh);background:linear-gradient(165deg,var(--nv) 0%,var(--nv-l) 40%,color-mix(in oklch,var(--nv) 82%,var(--bl)) 100%);overflow:hidden}
+.h-bg{position:absolute;inset:0;background-image:radial-gradient(oklch(1 0 0 / 0.03) 1px,transparent 0);background-size:32px 32px;pointer-events:none}
+.h-gt{position:absolute;top:-20%;right:-10%;width:60%;height:80%;background:radial-gradient(ellipse,oklch(0.55 0.22 254 / 0.10),transparent 65%);pointer-events:none}
+.h-gb{position:absolute;bottom:-12%;left:-6%;width:45%;height:45%;background:radial-gradient(ellipse,oklch(0.72 0.18 82 / 0.05),transparent 65%);pointer-events:none}
+.hero .container{position:relative;z-index:2}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);align-items:center}
+.h-badge{display:inline-flex;align-items:center;gap:var(--s2);background:oklch(0.55 0.22 254 / 0.10);border:1px solid oklch(0.72 0.14 254 / 0.15);padding:var(--s2) var(--s4);border-radius:100px;font-size:12.5px;font-weight:500;color:var(--bl-l);margin-bottom:var(--s5);backdrop-filter:blur(4px)}
+.h-dot{width:5px;height:5px;border-radius:50%;background:var(--gn);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
+.hero h1{font-size:clamp(30px,4.5vw,48px);font-weight:750;letter-spacing:-0.04em;line-height:1.06;color:#fff;margin-bottom:var(--s5)}
+.hero h1 .g{background:linear-gradient(135deg,var(--bl-l),var(--gd-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-lead{font-size:15.5px;color:var(--i2);max-width:480px;line-height:1.7;margin-bottom:var(--s8)}
+.h-acts{display:flex;gap:var(--s3);flex-wrap:wrap}
+.btn{position:relative;display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s3) var(--s6);border-radius:var(--r-sm);font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all var(--ds) var(--e);overflow:hidden}
+.btn-1{background:var(--bl);color:#fff;box-shadow:0 2px 12px oklch(0.55 0.22 254 / 0.20)}
+.btn-1:hover{transform:translateY(-1.5px);box-shadow:0 8px 32px oklch(0.35 0.20 254 / 0.30)}
+.btn-2{background:transparent;color:var(--i1);border:1px solid oklch(1 0 0 / 0.12)}
+.btn-2:hover{background:oklch(1 0 0 / 0.05)}
+.h-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s8);margin-top:var(--s12);padding-top:var(--s8);border-top:1px solid oklch(1 0 0 / 0.05)}
+.h-sv{font-size:30px;font-weight:750;color:#fff;letter-spacing:-0.02em}
+.h-sv .num{background:linear-gradient(135deg,var(--gd-l),var(--gd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sl{font-size:13px;color:var(--i2);margin-top:2px}
+.mm{position:relative;width:100%;aspect-ratio:1;max-width:500px;margin:0 auto}
+.mm-n{position:absolute;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;font-size:11px;font-weight:600;color:#fff;cursor:pointer;transition:all var(--dm) var(--e);white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.12);will-change:transform;text-align:center;line-height:1.2;padding:4px}
+.mm-n:hover{transform:scale(1.18)!important;z-index:10;box-shadow:0 8px 28px rgba(0,0,0,0.20)}
+.mm-n:hover{transform:scale(1.14)!important;z-index:10;box-shadow:0 8px 28px rgba(0,0,0,0.20)}
+.mm-n.ct{top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;font-size:13px;background:linear-gradient(135deg,var(--bl),var(--bl-d));z-index:5;box-shadow:0 8px 32px oklch(0.35 0.20 254 / 0.30)}
+.mm-n.ct:hover{transform:translate(-50%,-50%) scale(1.1)}
+
+/* ============== SECTION DIVIDERS ============== */
+.sec-hd{text-align:center;margin-bottom:var(--s14);position:relative}
+.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bl);margin-bottom:var(--s3)}
+.sec-tag::before,.sec-tag::after{content:'';width:20px;height:1.5px;background:var(--bl);border-radius:1px;opacity:0.4;transition:width var(--dm) var(--e)}
+.sec-hd:hover .sec-tag::before,.sec-hd:hover .sec-tag::after{width:32px}
+.sec-tag.light{color:var(--gd-l)}
+.sec-tag.light::before,.sec-tag.light::after{background:var(--gd-l)}
+.sec-h{font-size:clamp(24px,3.2vw,36px);font-weight:750;letter-spacing:-0.03em;line-height:1.15;color:var(--t1);margin-bottom:var(--s3)}
+.sec-h .hl{font-family:var(--font-s);font-weight:400;font-style:italic;color:var(--bl)}
+.sec-p{font-size:14px;color:var(--t2);line-height:1.7;max-width:520px;margin:0 auto}
+.sec{position:relative;padding:var(--s20) 0;overflow:hidden}
+.sec::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80%;max-width:400px;height:1px;background:linear-gradient(90deg,transparent,var(--bd),transparent);opacity:0.5}
+.sec:last-child::after{display:none}
+.sec-d{padding:var(--s16) 0}
+.sec-g{background:var(--su-a)}
+.sec-w{background:var(--cd)}
+.sec-navy{background:linear-gradient(165deg,var(--nv) 0%,var(--nv-l) 50%,color-mix(in oklch,var(--nv) 85%,var(--bl)) 100%);color:#fff;position:relative}
+.sec-navy::after{background:linear-gradient(90deg,transparent,oklch(1 0 0 / 0.06),transparent)}
+.sec-navy .sec-h{color:#fff}.sec-navy .sec-p{color:var(--i2)}
+
+/* Subtle corner ornament for white sections */
+.sec-w::before{content:'';position:absolute;top:var(--s8);right:var(--s8);width:40px;height:40px;border-top:2px solid var(--bd);border-right:2px solid var(--bd);opacity:0.3;pointer-events:none;border-radius:0 4px 0 0}
+.sec-w:last-child::before{display:none}
+
+/* ============== REVEAL ============== */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(0.16,1,0.3,1),transform .8s cubic-bezier(0.16,1,0.3,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+.r1{transition-delay:100ms}.r2{transition-delay:200ms}.r3{transition-delay:300ms}
+@media(prefers-reduced-motion){.rv{opacity:1;transform:none;transition:none}}
+
+/* ============== 1. ABOUT - Editorial Split ============== */
+.ab-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s16)}
+.ab-meta{display:flex;flex-direction:column;gap:var(--s5)}
+.ab-stat{display:flex;align-items:baseline;gap:var(--s3);padding:var(--s6) 0;border-bottom:1px solid var(--bd);transition:all var(--ds) var(--e)}
+.ab-stat:hover{padding-left:var(--s3);border-bottom-color:var(--bl)}
+.ab-stat:last-child{border:none}
+.ab-num{font-family:var(--font-s);font-size:44px;font-weight:400;color:var(--bl);line-height:1;min-width:80px}
+.ab-num .cnt{font-family:var(--font-d);font-weight:750}
+.ab-lbl{color:var(--t2);font-size:14px;line-height:1.4}
+.ab-lbl strong{color:var(--t1);display:block;font-size:15px}
+.ab-body{position:relative;padding-left:var(--s6)}
+.ab-body::before{content:'"';position:absolute;top:-16px;left:-4px;font-family:var(--font-s);font-size:72px;color:var(--bd);line-height:1;pointer-events:none}
+.ab-body::after{content:'"';position:absolute;bottom:-40px;left:-4px;font-family:var(--font-s);font-size:72px;color:var(--bd);line-height:1;pointer-events:none;opacity:0.5}
+.ab-body p{color:var(--t2);font-size:14.5px;line-height:1.85;margin-bottom:var(--s4)}
+.ab-tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.ab-tag{padding:var(--s2) var(--s4);background:var(--su-a);border-radius:100px;font-size:12.5px;color:var(--t2)}
+
+.biz-c p{font-size:12px;color:var(--t2);line-height:1.5}
+
+/* ============== 3. MINDMAP - big visual ============== */
+.mm-big{max-width:960px;margin:var(--s12) auto 0;display:grid;gap:var(--s4)}
+.mm-row-b{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s4);position:relative}
+.mm-row-b.dual{grid-template-columns:1fr 1fr;max-width:640px;margin:0 auto}
+.mm-b{background:oklch(1 0 0 / 0.03);border:1px solid oklch(1 0 0 / 0.06);border-radius:var(--r-lg);padding:var(--s6) var(--s5);text-align:center;transition:all var(--dm) var(--e);position:relative;overflow:hidden}
+.mm-b::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,oklch(1 0 0 / 0.08),transparent);opacity:0;transition:opacity var(--ds) var(--e)}
+.mm-b:hover::before{opacity:1}
+.mm-b:hover{background:oklch(0.55 0.22 254 / 0.08);border-color:oklch(0.55 0.22 254 / 0.15);transform:translateY(-4px)}
+.mm-b{cursor:pointer}
+.mm-b[data-expanded="true"]{transform:translateY(-4px)!important}
+.mm-b-detail{animation:fadeIn .3s cubic-bezier(0.16,1,0.3,1)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+.mm-b-icon{font-size:22px;margin-bottom:var(--s2)}
+.mm-b h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:var(--s2)}
+.mm-b-items{display:flex;flex-direction:column;gap:var(--s1)}
+.mm-b-item{font-size:12px;color:var(--i2);padding:var(--s1) var(--s3);background:oklch(1 0 0 / 0.03);border-radius:6px}
+.mm-conn{position:absolute;top:50%;right:-16px;transform:translateY(-50%);color:oklch(1 0 0 / 0.08);font-size:14px}
+.mm-b.dual .mm-conn{display:none}
+
+/* ============== 4. DEEP DIVE - floating sheets ============== */
+.dd-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);align-items:center}
+.dd-l h3{font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--t1);margin-bottom:var(--s4);letter-spacing:-0.02em}
+.dd-l p{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:var(--s5)}
+.fl{display:grid;gap:var(--s2)}
+.fl li{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3);border-radius:var(--r-sm);background:var(--su);font-size:13.5px;color:var(--t1);transition:background var(--df)}
+.fl li:hover{background:var(--su-a)}
+.fl .ck{color:var(--gn);font-weight:700;flex-shrink:0;font-size:14px;margin-top:1px}
+.fl .sub{display:block;font-size:11.5px;color:var(--t3);margin-top:1px}
+.dd-r{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.dd-c{background:var(--cd);border-radius:var(--r);padding:var(--s6) var(--s5);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative;overflow:hidden}
+.dd-c::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--c,var(--bl));border-radius:0 3px 3px 0;transition:width var(--ds) var(--e)}
+.dd-c::after{content:'';position:absolute;top:0;left:3px;right:0;bottom:0;background:linear-gradient(135deg,oklch(0.55 0.22 254 / 0.02),transparent 60%);opacity:0;transition:opacity var(--ds) var(--e)}
+.dd-c:hover::before{width:5px}
+.dd-c:hover::after{opacity:1}
+.dd-c:hover{transform:translateY(-4px);box-shadow:var(--sh-l);border-color:var(--bd-h)}
+.dd-c h4{font-size:13px;font-weight:650;color:var(--t1);margin-bottom:var(--s2);transition:color var(--df)}
+.dd-c:hover h4{color:var(--c,var(--bl))}
+.dd-c p{font-size:12.5px;color:var(--t2);line-height:1.6}
+
+/* ============== 4.5 KEXIAO dual card ============== */
+.kc-dual{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.kc-card{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative;overflow:hidden}
+.kc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac,var(--bl));border-radius:var(--r-lg) var(--r-lg) 0 0}
+.kc-card:hover{box-shadow:var(--sh-l);transform:translateY(-4px)}
+.kc-head{display:flex;align-items:center;gap:var(--s4);margin-bottom:var(--s5)}
+.kc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.kc-tag{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:4px}
+.kc-title{font-size:22px;font-weight:750;color:var(--t1);letter-spacing:-0.03em}
+.kc-desc{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:var(--s5);padding-bottom:var(--s5);border-bottom:1px solid var(--bd)}
+.kc-list{list-style:none;display:flex;flex-direction:column;gap:var(--s3);margin-bottom:var(--s6)}
+.kc-list li{display:flex;align-items:center;gap:var(--s3);font-size:13.5px;color:var(--t1)}
+.kc-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.kc-list strong{flex:1;font-weight:600}
+.kc-note{font-size:12px;color:var(--t3);white-space:nowrap}
+.kc-badge{font-size:12px;font-weight:500;padding:var(--s2) var(--s4);border-radius:var(--r);text-align:center}
+.kc-bar{display:flex;align-items:center;justify-content:center;gap:0;background:var(--cd);border-radius:var(--r-lg);border:1px solid var(--bd);padding:var(--s5) var(--s8);margin-top:var(--s6)}
+.kc-bar-item{flex:1;text-align:center}
+.kc-bar-lbl{display:block;font-size:14px;font-weight:700;margin-bottom:4px}
+.kc-bar-val{font-size:12.5px;color:var(--t2)}
+.kc-bar-div{width:1px;height:40px;background:var(--bd);flex-shrink:0}
+
+/* ============== 5. PATENT - staggered stack ============== */
+.pt-stack{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.pt-s{background:var(--cd);border-radius:var(--r);padding:var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative}
+.pt-s:hover{transform:translateY(-5px);box-shadow:var(--sh-l);border-color:transparent}
+.pt-s .pt-dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--bl));margin-bottom:var(--s3);transition:transform var(--ds) var(--e),box-shadow var(--ds) var(--e)}
+.pt-s:hover .pt-dot{transform:scale(1.4);box-shadow:0 0 16px var(--c,var(--bl))}
+.pt-s h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s2)}
+.pt-s p{font-size:12.5px;color:var(--t2);line-height:1.6}
+
+/* ============== 6. SUBSIDY - split layout ============== */
+.sb-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.sb-c{background:var(--cd);border-radius:var(--r);padding:var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative;overflow:hidden}
+.sb-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bl),var(--gd));opacity:0;transition:opacity var(--ds) var(--e)}
+.sb-c:hover::before{opacity:1}
+.sb-c:hover{transform:translateY(-3px);box-shadow:var(--sh-l)}
+.sb-c h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:2px}
+.sb-sub{font-size:12.5px;color:var(--t3);margin-bottom:var(--s3)}
+.sb-detail{font-size:12.5px;color:var(--t2);line-height:1.65;padding:var(--s3);background:var(--su);border-radius:var(--r-sm);white-space:pre-line}
+.prj-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);margin-top:var(--s8)}
+.prj-c{text-align:center;padding:var(--s5);border-radius:var(--r);border:1px solid var(--bd);transition:all var(--ds) var(--e);background:var(--cd)}
+.prj-c:hover{transform:translateY(-3px);box-shadow:var(--sh-l);border-color:var(--bl)}
+.prj-c h5{font-size:13.5px;font-weight:650;color:var(--t1);margin-bottom:var(--s1)}
+.prj-c p{font-size:12px;color:var(--t3)}
+
+/* ============== 7. CREDIT - dashboard ============== */
+.cr-dash{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.cr-c{background:var(--cd);border-radius:var(--r);padding:var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e)}
+.cr-c:hover{box-shadow:var(--sh-l);transform:translateY(-2px)}
+.cr-c h4{font-size:13.5px;font-weight:650;color:var(--t1);margin-bottom:var(--s4);display:flex;align-items:center;gap:var(--s2)}
+.cr-c h4 .cr-badge{font-size:10px;padding:2px 8px;border-radius:100px;color:#fff;font-weight:600}
+.cr-items{display:flex;flex-direction:column;gap:var(--s1)}
+.cr-items span{padding:var(--s2) var(--s3);background:var(--su);border-radius:var(--r-sm);font-size:12.5px;color:var(--t2);transition:all var(--df)}
+.cr-items span:hover{background:var(--su-a);transform:translateX(4px)}
+.cr-feats{display:flex;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s8);justify-content:center}
+.cr-feat{padding:var(--s2) var(--s5);background:var(--gn);color:#fff;border-radius:100px;font-size:12.5px;font-weight:600}
+
+/* ============== 8. TM - accordion style ============== */
+.tm-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.tm-w{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8);border:1px solid var(--bd)}
+.tm-w h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s6);padding-bottom:var(--s4);border-bottom:2px solid var(--c,var(--te));display:flex;align-items:center;gap:var(--s2)}
+.tm-cat{display:grid;grid-template-columns:60px 1fr;gap:var(--s2);padding:var(--s3);border-radius:var(--r-sm);transition:background var(--df)}
+.tm-cat:hover{background:var(--su)}
+.tm-lb{font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;text-align:center;color:var(--c,var(--te));background:oklch(0.55 0.20 182 / 0.06)}
+.tm-d{font-size:12.5px;color:var(--t2)}
+
+/* ============== 9. CERT ============== */
+.ct-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.ct-w{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8);border:1px solid var(--bd)}
+.ct-w h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s4);padding-bottom:var(--s3);border-bottom:2px solid var(--c,var(--gd));display:flex;align-items:center;gap:var(--s2)}
+.ct-items{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.ct-items span{padding:var(--s2) var(--s4);background:var(--su);border-radius:var(--r-sm);font-size:12.5px;color:var(--t2);border:1px solid transparent;transition:all var(--df)}
+.ct-items span:hover{border-color:var(--bd);background:var(--cd)}
+
+/* ============== 10. EDU - floating cards ============== */
+.edu-trip{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.edu-c{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8);border:1px solid var(--bd);text-align:center;transition:all var(--dm) var(--e);position:relative;overflow:hidden}
+.edu-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--bl));opacity:0;transition:opacity var(--ds) var(--e)}
+.edu-c:hover::before{opacity:1}
+.edu-c:hover{transform:translateY(-8px);box-shadow:var(--sh-xl);border-color:transparent}
+.edu-c .accent{width:32px;height:4px;border-radius:2px;margin:0 auto var(--s6);transition:width var(--ds) var(--e)}
+.edu-c:hover .accent{width:48px}
+.edu-c h3{font-size:17px;font-weight:700;color:var(--t1);margin-bottom:var(--s1)}
+.edu-school{font-size:12.5px;color:var(--t3);margin-bottom:var(--s2)}
+.edu-price{font-size:24px;font-weight:750;color:var(--bl);margin-bottom:2px}
+.edu-degree{font-size:12px;color:var(--t3);margin-bottom:var(--s5)}
+.edu-fe{list-style:none;display:flex;flex-direction:column;gap:var(--s1)}
+.edu-fe li{font-size:12.5px;color:var(--t2);padding:var(--s1) 0}
+.edu-fe li::before{content:'· ';color:var(--bl);font-weight:700}
+.edu-badges{display:flex;gap:var(--s2);flex-wrap:wrap;justify-content:center;margin-bottom:var(--s4)}
+.edu-badge{padding:var(--s2) var(--s4);background:var(--cd);border:1px solid var(--bd);border-radius:100px;font-size:12px;font-weight:600;color:var(--t2);transition:all var(--df)}
+.edu-badge:hover{border-color:var(--bl);color:var(--bl)}
+
+/* ============== 11. STAGES - stair ============== */
+.st-stair{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);position:relative;margin:var(--s10) 0}
+.st-stair::before{content:'';position:absolute;top:34px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bl),var(--gn),var(--gd),var(--pu));border-radius:2px}
+.st-c{text-align:center;position:relative}
+.st-c .circ{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);font-size:20px;font-weight:750;color:#fff;position:relative;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform var(--ds) var(--e),box-shadow var(--ds) var(--e)}
+.st-c:hover .circ{transform:scale(1.18);box-shadow:0 8px 28px rgba(0,0,0,0.12)}
+.st-c h4{font-size:16px;font-weight:650;color:var(--t1);margin-bottom:var(--s3);transition:color var(--df)}
+.st-c:hover h4{color:var(--c,var(--bl))}
+.st-svcs{display:flex;flex-direction:column;gap:var(--s1)}
+.st-svcs span{padding:var(--s1) var(--s3);background:var(--cd);border-radius:var(--r-sm);font-size:12.5px;color:var(--t2);border:1px solid var(--bd);transition:all var(--df)}
+.st-svcs span:hover{transform:translateX(4px);border-color:var(--c,var(--bl))}
+.st-banner{margin-top:var(--s10);padding:var(--s6);background:linear-gradient(135deg,var(--bl),var(--bl-d));border-radius:var(--r-lg);text-align:center;color:#fff}
+.st-banner p{font-size:15px;font-weight:600}
+
+/* ============== 12. PAIN - dramatic ============== */
+.pn-g{display:grid;gap:var(--s2)}
+.pn-c{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--s4);align-items:center;background:var(--cd);border-radius:var(--r);padding:var(--s5) var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e)}
+.pn-c:hover{box-shadow:var(--sh);border-color:var(--bd-h)}
+.pn-l .pn-t{font-size:13.5px;font-weight:650;color:var(--t1);margin-bottom:2px}
+.pn-l .pn-d{font-size:12.5px;color:var(--t3)}
+.pn-arr{text-align:center;color:oklch(0.58 0.22 22 / 0.3);font-size:20px}
+.pn-r .s-t{font-size:13.5px;font-weight:650;color:var(--gn);margin-bottom:2px}
+.pn-r .s-d{font-size:12.5px;color:var(--t2)}
+
+/* ============== 13. CLIENTS ============== */
+.cl-g{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5)}
+.cl-c{background:var(--cd);border-radius:var(--r-lg);padding:var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative}
+.cl-c:hover{transform:translateY(-6px);box-shadow:var(--sh-xl);border-color:transparent}
+.cl-icon{font-size:28px;margin-bottom:var(--s3);transition:transform var(--ds) var(--e)}
+.cl-c:hover .cl-icon{transform:scale(1.15)}
+.cl-c h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s1)}
+.cl-ind{font-size:12.5px;color:var(--t3);margin-bottom:var(--s3)}
+.cl-tags{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.cl-tags span{font-size:11.5px;padding:var(--s1) var(--s3);background:var(--su);border-radius:100px;color:var(--t2)}
+
+/* ============== 14. WHY - hex grid feel ============== */
+.wy-hex{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.wy-c{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8) var(--s6);border:1px solid var(--bd);text-align:center;transition:all var(--ds) var(--e);position:relative;overflow:hidden}
+.wy-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--bl),transparent);opacity:0;transition:opacity var(--ds) var(--e)}
+.wy-c:hover::before{opacity:1}
+.wy-c:hover{transform:translateY(-6px);box-shadow:var(--sh-xl);border-color:transparent}
+.wy-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);font-size:20px;transition:transform var(--ds) var(--e),box-shadow var(--ds) var(--e)}
+.wy-c:hover .wy-icon{transform:scale(1.12) rotate(-3deg);box-shadow:0 8px 24px oklch(0 0 0 / 0.06)}
+.wy-c h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s1)}
+.wy-c p{font-size:12.5px;color:var(--t2)}
+
+/* ============== 15. COMMITMENTS ============== */
+.cm-timeline{position:relative;max-width:800px;margin:0 auto}
+.cm-timeline::before{content:'';position:absolute;left:39px;top:0;bottom:0;width:2px;background:var(--bd)}
+.cm-item{display:flex;gap:var(--s5);padding:var(--s5) 0;position:relative;transition:all var(--ds) var(--e)}
+.cm-item:hover{transform:translateX(var(--s2))}
+.cm-num{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-s);font-size:28px;color:#fff;flex-shrink:0;position:relative;z-index:2;box-shadow:0 4px 16px oklch(0.55 0.22 254 / 0.15);transition:transform var(--ds) var(--e),box-shadow var(--ds) var(--e)}
+.cm-item:hover .cm-num{transform:scale(1.1);box-shadow:0 8px 28px oklch(0.55 0.22 254 / 0.20)}
+.cm-body h4{font-size:15px;font-weight:650;color:var(--t1);margin-bottom:var(--s2);margin-top:var(--s3);transition:color var(--df)}
+.cm-item:hover .cm-body h4{color:var(--bl)}
+.cm-body p{font-size:13.5px;color:var(--t2);line-height:1.65;max-width:520px}
+
+/* ============== 16. VALUES ============== */
+.vl-split{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.vl-c{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative}
+.vl-c:hover{transform:translateY(-4px);box-shadow:var(--sh-xl)}
+.vl-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--bl);margin-bottom:var(--s2)}
+.vl-c h3{font-size:18px;font-weight:700;color:var(--t1);margin-bottom:var(--s3)}
+.vl-c p{font-size:13.5px;color:var(--t2);line-height:1.7}
+.pr-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s8)}
+.pr-c{text-align:center;padding:var(--s5);border-radius:var(--r);border:1px solid var(--bd);transition:all var(--ds) var(--e);background:var(--cd)}
+.pr-c:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:var(--bd-h)}
+.p-ch{width:40px;height:40px;border-radius:50%;background:var(--bl);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s2);font-size:16px;font-weight:700}
+.pr-c h4{font-size:13px;font-weight:650;color:var(--t1);margin-bottom:2px}
+.pr-c p{font-size:11.5px;color:var(--t2);line-height:1.5}
+
+/* ============== FOOTER ============== */
+.ft{background:var(--nv);color:var(--i2);padding:var(--s20) 0 var(--s10)}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--s12);margin-bottom:var(--s12)}
+.ft-brand h3{font-size:20px;font-weight:750;color:#fff;margin-bottom:var(--s2);letter-spacing:-0.02em}
+.ft-brand p{font-size:13.5px;line-height:1.7;max-width:320px}
+.ft-links h4{font-size:13.5px;font-weight:650;color:#fff;margin-bottom:var(--s4)}
+.ft-links a{display:block;padding:var(--s1) 0;font-size:13.5px;transition:color var(--df)}
+.ft-links a:hover{color:var(--bl-l)}
+.ft-b{border-top:1px solid oklch(1 0 0 / 0.04);padding-top:var(--s6);display:flex;justify-content:space-between;font-size:12.5px}
+
+/* ============== RESPONSIVE ============== */
+@media(max-width:1024px){
+  .hero-g{grid-template-columns:1fr;gap:var(--s12)}
+  .ab-g{grid-template-columns:1fr}
+  .dd-g{grid-template-columns:1fr;gap:var(--s8)}
+  .cl-g,.wy-hex,.vl-split{grid-template-columns:repeat(2,1fr)}
+  .st-stair::before{display:none}
+  .st-stair{grid-template-columns:repeat(2,1fr);gap:var(--s5)}
+  .ft-g{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav{display:none}.mob-toggle{display:block}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:var(--hh);left:0;right:0;background:oklch(0.97 0.005 82 / 0.98);backdrop-filter:blur(20px);padding:var(--s4);border-bottom:1px solid var(--bd)}
+  .edu-trip{grid-template-columns:1fr 1fr}
+  .dd-r,.sb-split,.tm-split,.ct-split{grid-template-columns:1fr}
+  .kc-dual{grid-template-columns:1fr}
+  .kc-bar{flex-direction:column;gap:var(--s3)}
+  .kc-bar-div{width:100%;height:1px}
+  .pt-stack{grid-template-columns:1fr 1fr}
+  .cr-dash{grid-template-columns:1fr}
+  .cl-g,.wy-hex,.vl-split{grid-template-columns:1fr}
+  .prj-row{grid-template-columns:repeat(2,1fr)}
+  .st-stair{grid-template-columns:1fr}
+  .pn-c{grid-template-columns:1fr;text-align:center}
+  .pn-arr{transform:rotate(90deg)}
+  .pr-row{grid-template-columns:repeat(2,1fr)}
+  .ft-g{grid-template-columns:1fr}.ft-b{flex-direction:column;gap:var(--s2);text-align:center}
+  .cm-item{flex-direction:column;align-items:center;text-align:center}
+  .cm-timeline::before{display:none}
+  .mm-row-b,.mm-row-b.dual{grid-template-columns:1fr}
+  .mm-conn{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="h-inner">
+    <div class="logo"><span class="logo-d"></span>叶舟<span class="logo-a">咨询</span></div>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#about">概览</a><a href="#mm">业务</a><a href="#mm">全景</a>
+      <a href="#pain">方案</a><a href="#why">优势</a><a href="#values">文化</a>
+    </nav>
+    <button class="mob-toggle" aria-label="菜单" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- ========== HERO (preserved) ========== -->
+<section class="hero" aria-label="首页">
+  <div class="h-bg"></div><div class="h-gt"></div><div class="h-gb"></div>
+  <div class="container">
+    <div class="hero-g">
+      <div>
+        <div class="h-badge"><span class="h-dot"></span>企业综合服务 · 人才教育培养</div>
+        <h1>让企业成长<br><span class="g">每一步都精准有力</span></h1>
+        <p class="h-lead">从高新认定到专精特新培育，从资质办理到在职研究生培养——叶舟咨询提供全链路企业服务与人才教育解决方案。</p>
+        <div class="h-acts">
+          <a href="#mm" class="btn btn-1">探索业务 →</a>
+          <a href="#about" class="btn btn-2">了解我们</a>
+        </div>
+        <div class="h-stats">
+          <div><div class="h-sv"><span class="num" data-target="10">0</span>+</div><div class="h-sl">年行业深耕</div></div>
+          <div><div class="h-sv"><span class="num" data-target="5000">0</span>+</div><div class="h-sl">服务企业数量</div></div>
+          <div><div class="h-sv"><span class="num" data-target="99">0</span>%</div><div class="h-sl">客户满意度</div></div>
+        </div>
+      </div>
+            <div class="mm">
+        <div class="mm-n ct">叶舟</div>
+        <div class="mm-n" onclick="document.getElementById('gaoxin').scrollIntoView({behavior:'smooth'})" data-target="#gaoxin" style="top:8%;left:50%;transform:translateX(-50%);background:var(--bl)">高新</div>
+        <div class="mm-n" onclick="document.getElementById('gaoxin').scrollIntoView({behavior:'smooth'})" data-target="#gaoxin" style="top:22%;right:5%;background:var(--gn)">专精</div>
+        <div class="mm-n" onclick="document.getElementById('kexiao').scrollIntoView({behavior:'smooth'})" data-target="#kexiao" style="top:40%;right:2%;background:var(--pu)">科小</div>
+        <div class="mm-n" onclick="document.getElementById('zhuanli').scrollIntoView({behavior:'smooth'})" data-target="#zhuanli" style="top:58%;right:5%;background:var(--rd)">专利</div>
+        <div class="mm-n" onclick="document.getElementById('shangbiao').scrollIntoView({behavior:'smooth'})" data-target="#shangbiao" style="top:75%;right:12%;background:var(--te)">商标</div>
+        <div class="mm-n" onclick="document.getElementById('zizhi').scrollIntoView({behavior:'smooth'})" data-target="#zizhi" style="top:88%;left:50%;transform:translateX(-50%);background:var(--nv-m)">资质</div>
+        <div class="mm-n" onclick="document.getElementById('zizhi').scrollIntoView({behavior:'smooth'})" data-target="#zizhi" style="top:75%;left:12%;background:var(--gd)">体系</div>
+        <div class="mm-n" onclick="document.getElementById('butie').scrollIntoView({behavior:'smooth'})" data-target="#butie" style="top:58%;left:2%;background:var(--bl-d)">补贴</div>
+        <div class="mm-n" onclick="document.getElementById('xinyong').scrollIntoView({behavior:'smooth'})" data-target="#xinyong" style="top:40%;left:2%;background:#ca3a3a">信用</div>
+        <div class="mm-n" onclick="document.getElementById('jiaoyu').scrollIntoView({behavior:'smooth'})" data-target="#jiaoyu" style="top:22%;left:5%;background:var(--gn)">申硕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 1. ABOUT - Editorial Split ========== -->
+<section class="sec" id="about">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">about</span>
+      <h2 class="sec-h">北京叶舟方建信息咨询中心</h2>
+      <p class="sec-p">一家专注于企业综合服务与人才教育培养的综合性服务机构</p>
+    </div>
+    <div class="ab-g">
+      <div class="ab-meta rv r1">
+        <div class="ab-stat"><div class="ab-num"><span class="cnt" data-target="10">0</span>+</div><div class="ab-lbl"><strong>年行业深耕</strong>十年专注企业服务领域</div></div>
+        <div class="ab-stat"><div class="ab-num"><span class="cnt" data-target="5000">0</span>+</div><div class="ab-lbl"><strong>服务企业数量</strong>覆盖科技、制造、贸易、教育</div></div>
+        <div class="ab-stat"><div class="ab-num"><span class="cnt" data-target="99">0</span>%</div><div class="ab-lbl"><strong>客户满意度</strong>一对一专属顾问全程跟踪</div></div>
+      </div>
+      <div class="ab-body rv r2">
+        <p>我们致力于为企业提供从高新、专精特新、小巨人资质认证、知识产权保护、信用修复到政策补贴申报的全链路解决方案，同时依托中国人民大学等顶尖高校资源，开展同等学力申硕等在职研究生培养项目。</p>
+        <p>秉持 <strong style="color:var(--bl)">「专业、高效、诚信、陪伴」</strong> 的服务理念，以客户需求为导向，以专业能力为支撑，助力企业合规经营、健康成长。</p>
+        <div class="ab-tags">
+          <span class="ab-tag">全国范围服务</span>
+          <span class="ab-tag">中大型·小微企业</span>
+          <span class="ab-tag">一对一专属顾问</span>
+          <span class="ab-tag">全流程跟踪</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. DEEP: 高新+专精 ========== -->
+<section class="sec sec-w" id="gaoxin">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">recognition</span>
+      <h2 class="sec-h">高新认定 <span class="hl">&</span> 专精特新</h2>
+      <p class="sec-p">国家高新技术企业与专精特新中小企业双资质全流程服务</p>
+    </div>
+    <div class="dd-g">
+      <div class="dd-l rv">
+        <h3>国家资质认定服务</h3>
+        <p>高新认定+专精特新双资质全流程服务，精准匹配企业条件，从评估到拿证全程护航。</p>
+        <ul class="fl">
+          <li><span class="ck">&#10003;</span>国家高新技术企业认定<span class="sub">15%所得税优惠</span></li>
+          <li><span class="ck">&#10003;</span>专精特新中小企业认定<span class="sub">政策资金扶持</span></li>
+          <li><span class="ck">&#10003;</span>研发费用加计扣除100%</li>
+          <li><span class="ck">&#10003;</span>梯度培育体系<span class="sub">创新型→专精特新→小巨人</span></li>
+        </ul>
+      </div>
+      <div class="dd-r rv r1">
+        <div class="dd-c" style="--c:var(--bl)"><h4>专精特新条件</h4><p>专业化·精细化·特色化·新颖化</p></div>
+        <div class="dd-c" style="--c:var(--gn)"><h4>专精特新权益</h4><p>政策资金+融资通道+品牌提升</p></div>
+        <div class="dd-c" style="--c:var(--gd)"><h4>专精特新培育</h4><p>创新型→专精特新→小巨人</p></div>
+        <div class="dd-c" style="--c:var(--pu)"><h4>高新核心价值</h4><p>15%所得税+加计扣除100%</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. DEEP: 科小+创小 ========== -->
+<section class="sec sec-g" id="kexiao">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">SME recognition</span>
+      <h2 class="sec-h">科小 <span class="hl">&</span> 创小认定</h2>
+      <p class="sec-p">科技型+创新型双认定，享受税收减免与梯度培育，助力中小企业快速成长</p>
+    </div>
+    <div class="kc-dual rv r1">
+      <!-- 科小 -->
+      <div class="kc-card" style="--ac:var(--bl)">
+        <div class="kc-head">
+          <div class="kc-icon" style="background:var(--bl)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="kc-tag">科技型中小企业</div>
+            <h3 class="kc-title">科小认定</h3>
+          </div>
+        </div>
+        <p class="kc-desc">由科技部评价认定，是科技创新型企业的基础资质，也是进入高新梯度的第一步。</p>
+        <ul class="kc-list">
+          <li><span class="kc-dot" style="background:var(--bl)"></span><strong>研发加计扣除100%</strong><span class="kc-note">大幅降低研发成本</span></li>
+          <li><span class="kc-dot" style="background:var(--bl)"></span><strong>亏损结转延至10年</strong><span class="kc-note">缓解初期资金压力</span></li>
+          <li><span class="kc-dot" style="background:var(--bl)"></span><strong>高新认定前置条件</strong><span class="kc-note">打通升级通道</span></li>
+          <li><span class="kc-dot" style="background:var(--bl)"></span><strong>政府采购加分项</strong><span class="kc-note">提升市场竞争力</span></li>
+        </ul>
+        <div class="kc-badge" style="background:oklch(from var(--bl) l c h / 0.08);color:var(--bl);border:1px solid oklch(from var(--bl) l c h / 0.25)">税收优惠 · 研发支持 · 梯度入口</div>
+      </div>
+      <!-- 创小 -->
+      <div class="kc-card" style="--ac:var(--pu)">
+        <div class="kc-head">
+          <div class="kc-icon" style="background:var(--pu)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="kc-tag">创新型中小企业</div>
+            <h3 class="kc-title">创小认定</h3>
+          </div>
+        </div>
+        <p class="kc-desc">由工信部评价认定，创新能力导向，是专精特新梯度培育体系的正式入口。</p>
+        <ul class="kc-list">
+          <li><span class="kc-dot" style="background:var(--pu)"></span><strong>梯度培育入库</strong><span class="kc-note">进入专精特新通道</span></li>
+          <li><span class="kc-dot" style="background:var(--pu)"></span><strong>政策优先扶持</strong><span class="kc-note">资金/人才/用地倾斜</span></li>
+          <li><span class="kc-dot" style="background:var(--pu)"></span><strong>品牌官方背书</strong><span class="kc-note">工信部认可标识</span></li>
+          <li><span class="kc-dot" style="background:var(--pu)"></span><strong>融资通道优化</strong><span class="kc-note">银行授信加分项</span></li>
+        </ul>
+        <div class="kc-badge" style="background:oklch(from var(--pu) l c h / 0.08);color:var(--pu);border:1px solid oklch(from var(--pu) l c h / 0.25)">梯度培育 · 政策扶持 · 品牌提升</div>
+      </div>
+    </div>
+    <!-- 底部对比条 -->
+    <div class="kc-bar rv r2">
+      <div class="kc-bar-item"><span class="kc-bar-lbl" style="color:var(--bl)">科小</span><span class="kc-bar-val">科技部评定 · 税收+研发优惠</span></div>
+      <div class="kc-bar-div"></div>
+      <div class="kc-bar-item"><span class="kc-bar-lbl" style="color:var(--pu)">创小</span><span class="kc-bar-val">工信部评定 · 梯度培育入口</span></div>
+      <div class="kc-bar-div"></div>
+      <div class="kc-bar-item"><span class="kc-bar-lbl" style="color:var(--gn)">协同价值</span><span class="kc-bar-val">双认定叠加 → 政策红利最大化</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== zhuanli ========== -->
+<section class="sec sec-
+<section class="sec sec-w" id="zhuanli">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">patents</span>
+      <h2 class="sec-h">专利服务</h2>
+      <p class="sec-p">全方位专利布局，保护创新成果，提升技术壁垒</p>
+    </div>
+    <div class="pt-stack rv">
+      <div class="pt-s" style="--c:var(--bl)"><div class="pt-dot" style="background:var(--bl)"></div><h4>发明专利</h4><p>技术创新方案保护 · 审查周期18-24个月</p></div>
+      <div class="pt-s" style="--c:var(--gn)"><div class="pt-dot" style="background:var(--gn)"></div><h4>实用新型</h4><p>产品形状/构造改进 · 审查周期6-10个月</p></div>
+      <div class="pt-s" style="--c:var(--gd)"><div class="pt-dot" style="background:var(--gd)"></div><h4>外观专利</h4><p>产品外观设计保护 · 审查周期4-6个月</p></div>
+      <div class="pt-s" style="--c:var(--pu)"><div class="pt-dot" style="background:var(--pu)"></div><h4>专利检索分析</h4><p>查新/侵权/FTO分析 · 专业报告输出</p></div>
+      <div class="pt-s" style="--c:var(--rd)"><div class="pt-dot" style="background:var(--rd)"></div><h4>加快审查</h4><p>优先审查/预审通道 · 缩短50%以上周期</p></div>
+      <div class="pt-s" style="--c:var(--te)"><div class="pt-dot" style="background:var(--te)"></div><h4>国际专利PCT</h4><p>多国专利申请通道 · 覆盖150+国家</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== shangbiao ========== -->
+<section class="sec sec-
+<section class="sec sec-g" id="shangbiao">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">ip</span>
+      <h2 class="sec-h">商标服务 <span class="hl">&</span> 版权保护</h2>
+      <p class="sec-p">商标全生命周期管理与著作权登记，全方位守护无形资产</p>
+    </div>
+    <div class="tm-split rv">
+      <div class="tm-w"><h4 style="--c:var(--te);border-color:var(--te)">📋 商标服务</h4>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">核心</span><span class="tm-d">商标注册 · 全流程申请 · 分类指导</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">争议</span><span class="tm-d">商标撤三 · 撤销连续三年不使用</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">维护</span><span class="tm-d">商标变更 · 地址/名义变更</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">救济</span><span class="tm-d">驳回复审 · 驳回后争取注册</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">交易</span><span class="tm-d">商标转让 · 商标权转移登记</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--te)">维权</span><span class="tm-d">异议答辩 · 应对他人异议</span></div>
+      </div>
+      <div class="tm-w"><h4 style="--c:var(--bl);border-color:var(--bl)">©️ 版权保护</h4>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--bl);background:oklch(0.55 0.22 254 / 0.06)">软著</span><span class="tm-d">软件著作权 · 新申请/变更/转让</span></div>
+        <div class="tm-cat"><span class="tm-lb" style="--c:var(--bl);background:oklch(0.55 0.22 254 / 0.06)">作品</span><span class="tm-d">作品著作权 · 新申请/变更/转让</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== zizhi ========== -->
+<section class="sec sec-
+<section class="sec sec-w" id="zizhi">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">compliance</span>
+      <h2 class="sec-h">资质办理 <span class="hl">&</span> 体系认证</h2>
+      <p class="sec-p">经营资质+ISO体系，一站式合规解决方案</p>
+    </div>
+    <div class="ct-split rv">
+      <div class="ct-w"><h4 style="--c:var(--bl);border-color:var(--bl)">🏢 公司资质办理</h4><div class="ct-items"><span>食品经营许可证</span><span>人力资源许可证</span><span>进出口权资质</span><span>医疗器械备案</span><span>增值电信(ICP/EDI)</span><span>特许资质/行业许可</span></div></div>
+      <div class="ct-w"><h4 style="--c:var(--gd);border-color:var(--gd)">✅ 体系认证服务</h4><div class="ct-items"><span>ISO9001</span><span>ISO14001</span><span>ISO45001</span><span>ISO27001</span><span>ISO20000</span><span>CMMI</span><span>ITSS</span><span>CCRC</span><span>CS/DCMM</span><span>CE/AAA</span><span>HACCP</span><span>ISO27701</span></div><p style="margin-top:var(--s3);font-size:11.5px;color:var(--t3)">更多：GB/T 50430 · ICP增值电信 · DEI · 知识产权管理体系 · 售后服务体系认证</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== butie ========== -->
+<section class="sec sec-
+<section class="sec sec-g" id="butie">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">subsidies</span>
+      <h2 class="sec-h">政策类补贴</h2>
+      <p class="sec-p">企业可享受的各项政府专项补贴，专业团队协助申报</p>
+    </div>
+    <div class="sb-split rv">
+      <div class="sb-c"><h4>重点人群社保补贴</h4><div class="sb-sub">吸纳就业困难人员社保补贴</div><div class="sb-detail">最高每人每年7800元\n额度抵扣，3年累计\n申报条件宽松</div></div>
+      <div class="sb-c"><h4>岗位社保补贴</h4><div class="sb-sub">企业用工社保费用减免</div><div class="sb-detail">按实际招用人数\n社保单位部分减免\n最长3年期限</div></div>
+      <div class="sb-c"><h4>残疾人补贴</h4><div class="sb-sub">安置残疾人就业税收优惠</div><div class="sb-detail">按残疾人工资100%加计扣除\n增值税即征即退\n残保金减免</div></div>
+      <div class="sb-c"><h4>大学生补贴</h4><div class="sb-sub">吸纳高校毕业生就业补贴</div><div class="sb-detail">一次性扩岗补助\n社保补贴支持\n助力人才储备</div></div>
+    </div>
+    <div class="rv" style="text-align:center;margin-top:var(--s12);margin-bottom:var(--s6)"><span class="sec-tag">projects</span><h2 class="sec-h" style="font-size:22px">企业荣誉资质申报</h2></div>
+    <div class="prj-row rv">
+      <div class="prj-c"><h5>国家高新技术企业</h5><p>15%优惠税率 · 品牌价值</p></div>
+      <div class="prj-c"><h5>专精特新认定</h5><p>梯度培育 · 资金扶持</p></div>
+      <div class="prj-c"><h5>科技型中小企业</h5><p>加计扣除 · 税收减免</p></div>
+      <div class="prj-c"><h5>小巨人</h5><p>国家级荣誉 · 百万补贴</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== xinyong ========== -->
+<section class="sec sec-
+<section class="sec sec-w" id="xinyong">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">credit</span>
+      <h2 class="sec-h">企业信用修复</h2>
+      <p class="sec-p">清除不良信用记录，恢复融资能力与商业信誉</p>
+    </div>
+    <div class="cr-feats rv"><span class="cr-feat">覆盖7大官方数据源</span><span class="cr-feat">司法/行政/公示全维度</span><span class="cr-feat">专业法律团队支持</span><span class="cr-feat">流程透明可追踪</span></div>
+    <div class="cr-dash rv">
+      <div class="cr-c" style="--c:var(--rd)"><h4><span class="cr-badge" style="background:var(--rd)">司法</span>案件公告与执行</h4><div class="cr-items"><span>司法案件</span><span>被执行人</span><span>终本案件</span><span>裁判文书</span><span>法院公告</span><span>劳动仲裁</span></div></div>
+      <div class="cr-c" style="--c:var(--gd)"><h4><span class="cr-badge" style="background:var(--gd)">行政</span>行政处罚与异常</h4><div class="cr-items"><span>行政处罚</span><span>环保处罚</span><span>经营异常</span><span>欠税公告</span></div></div>
+      <div class="cr-c" style="--c:var(--bl)"><h4><span class="cr-badge" style="background:var(--bl)">公示</span>信用中国与企信</h4><div class="cr-items"><span>企业征信五级分类</span><span>信用中国</span><span>国家企业信用信息公示系统</span><span>法院公告系统</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== jiaoyu ========== -->
+<section class="sec sec-
+<section class="sec sec-g" id="jiaoyu">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">education</span>
+      <h2 class="sec-h">在职研究生培养</h2>
+      <p class="sec-p">依托中国人民大学等985高校资源，开展同等学力申硕项目</p>
+    </div>
+    <div class="edu-trip rv">
+      <div class="edu-c"><div class="accent" style="background:var(--bl)"></div><h3>心理学</h3><div class="edu-school">中国人民大学</div><div class="edu-price">7.98万</div><div class="edu-degree">同等学力申硕</div><ul class="edu-fe"><li>免试入学</li><li>线上授课</li><li>60分及格</li></ul></div>
+      <div class="edu-c"><div class="accent" style="background:var(--gn)"></div><h3>人工智能</h3><div class="edu-school">中国人民大学</div><div class="edu-price">详询</div><div class="edu-degree">同等学力申硕</div><ul class="edu-fe"><li>前沿课程</li><li>双导师制</li><li>实践导向</li></ul></div>
+      <div class="edu-c"><div class="accent" style="background:var(--gd)"></div><h3>可持续发展</h3><div class="edu-school">中国人民大学</div><div class="edu-price">3.8万</div><div class="edu-degree">同等学力申硕</div><ul class="edu-fe"><li>政策热点</li><li>跨学科</li><li>国际视野</li></ul></div>
+    </div>
+    <div class="rv" style="margin-top:var(--s8);text-align:center">
+      <div class="edu-badges"><span class="edu-badge">985名校背书</span><span class="edu-badge">免试入学</span><span class="edu-badge">线上授课</span><span class="edu-badge">60分及格</span><span class="edu-badge">成绩保留4年</span></div>
+      <p style="font-size:12.5px;color:var(--t3)">面向人群：企业中高层管理人员 · 专业技术人员 · 有志提升学历的在职人士<br>学习形式：线下+线上直播+录播回放 · 工作学习两不误</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 12. Stages ========== -->
+<section class="sec sec-w">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">roadmap</span>
+      <h2 class="sec-h">企业各阶段服务</h2>
+      <p class="sec-p">无论您处于哪个发展阶段，我们都能提供匹配的专业服务</p>
+    </div>
+    <div class="st-stair rv">
+      <div class="st-c"><div class="circ" style="background:var(--bl)">1</div><h4>初创期</h4><div class="st-svcs"><span style="--c:var(--bl)">专利保护</span><span style="--c:var(--bl)">政策补贴</span><span style="--c:var(--bl)">商标注册</span><span style="--c:var(--bl)">初创补贴</span></div></div>
+      <div class="st-c"><div class="circ" style="background:var(--gn)">2</div><h4>成长期</h4><div class="st-svcs"><span style="--c:var(--gn)">高新认定</span><span style="--c:var(--gn)">专利申请</span><span style="--c:var(--gn)">ISO认证</span><span style="--c:var(--gn)">社保补贴</span></div></div>
+      <div class="st-c"><div class="circ" style="background:var(--gd)">3</div><h4>发展期</h4><div class="st-svcs"><span style="--c:var(--gd)">专精特新</span><span style="--c:var(--gd)">信用修复</span><span style="--c:var(--gd)">项目申报</span><span style="--c:var(--gd)">体系完善</span></div></div>
+      <div class="st-c"><div class="circ" style="background:var(--pu)">4</div><h4>成熟期</h4><div class="st-svcs"><span style="--c:var(--pu)">知产战略</span><span style="--c:var(--pu)">认证升级</span><span style="--c:var(--pu)">人才培养</span><span style="--c:var(--pu)">合规审计</span></div></div>
+    </div>
+    <div class="st-banner rv r1"><p>陪伴企业从0到1、从1到N的完整成长周期</p></div>
+  </div>
+</section>
+
+<!-- ========== 13. Pain ========== -->
+<section class="sec sec-g" id="pain">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">solutions</span>
+      <h2 class="sec-h">行业痛点 <span class="hl">&</span> 解决方案</h2>
+      <p class="sec-p">每个痛点背后，都有一个成熟的专业方案</p>
+    </div>
+    <div class="pn-g rv">
+      <div class="pn-c"><div class="pn-l"><div class="pn-t">小巨人指标文件庞大琐碎</div><div class="pn-d">申请材料繁杂、数据指标模糊</div></div><div class="pn-arr">→</div><div class="pn-r"><div class="s-t">一站式服务</div><div class="s-d">专业团队深耕多年、快捷高效</div></div></div>
+      <div class="pn-c"><div class="pn-l"><div class="pn-t">高新专精认定条件复杂</div><div class="pn-d">窗口期短，材料准备时间长</div></div><div class="pn-arr">→</div><div class="pn-r"><div class="s-t">全链条技术赋能</div><div class="s-d">全流程闭环服务</div></div></div>
+      <div class="pn-c"><div class="pn-l"><div class="pn-t">知识产权意识薄弱</div><div class="pn-d">商标被抢注、技术被侵权</div></div><div class="pn-arr">→</div><div class="pn-r"><div class="s-t">知产全生命周期管理</div><div class="s-d">从申请到维权全方位保护</div></div></div>
+      <div class="pn-c"><div class="pn-l"><div class="pn-t">政策信息不透明</div><div class="pn-d">补贴/资质政策繁多</div></div><div class="pn-arr">→</div><div class="pn-r"><div class="s-t">实时政策追踪</div><div class="s-d">持续跟进，主动推送适配方案</div></div></div>
+      <div class="pn-c"><div class="pn-l"><div class="pn-t">在职提升无门路</div><div class="pn-d">工作忙、时间紧</div></div><div class="pn-arr">→</div><div class="pn-r"><div class="s-t">免试入学线上就读</div><div class="s-d">985名校同等学力申硕</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 14. Clients ========== -->
+<section class="sec sec-w">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">clients</span>
+      <h2 class="sec-h">过往服务对象</h2>
+      <p class="sec-p">覆盖四大行业，服务1000+企业客户</p>
+    </div>
+    <div class="cl-g rv">
+      <div class="cl-c"><div class="cl-icon">◈</div><h4>科技互联网</h4><div class="cl-ind">软件开发 · 信息技术 · 互联网平台</div><div class="cl-tags"><span>高新认定</span><span>软著申请</span><span>ICP许可</span></div></div>
+      <div class="cl-c"><div class="cl-icon">▣</div><h4>制造实业</h4><div class="cl-ind">机械制造 · 电子制造 · 食品加工</div><div class="cl-tags"><span>ISO认证</span><span>专利布局</span><span>设备资质</span></div></div>
+      <div class="cl-c"><div class="cl-icon">◆</div><h4>贸易流通</h4><div class="cl-ind">进出口贸易 · 批发零售 · 跨境电商</div><div class="cl-tags"><span>进出口权</span><span>商标保护</span><span>信用修复</span></div></div>
+      <div class="cl-c"><div class="cl-icon">●</div><h4>教育培训</h4><div class="cl-ind">职业培训 · 学历教育 · 在线教育</div><div class="cl-tags"><span>办学许可</span><span>人力资质</span><span>在职申硕</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 15. Why ========== -->
+<section class="sec sec-g" id="why">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">advantages</span>
+      <h2 class="sec-h">为什么选择叶舟咨询</h2>
+      <p class="sec-p">六大核心优势，让企业服务更高效、更可靠</p>
+    </div>
+    <div class="wy-hex rv">
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.55 0.22 254 / 0.06);color:var(--bl)">🔄</div><h4>全链路覆盖</h4><p>10大板块一站式综合服务</p></div>
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.58 0.20 158 / 0.06);color:var(--gn)">👥</div><h4>专业团队</h4><p>资深顾问一对一服务</p></div>
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.72 0.18 82 / 0.06);color:var(--gd)">⚡</div><h4>高效响应</h4><p>快速处理不拖沓</p></div>
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.52 0.22 288 / 0.06);color:var(--pu)">🔗</div><h4>官方直连</h4><p>7大数据源直查</p></div>
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.58 0.22 28 / 0.06);color:var(--rd)">💰</div><h4>价格透明</h4><p>无隐形收费</p></div>
+      <div class="wy-c"><div class="wy-icon" style="background:oklch(0.55 0.20 182 / 0.06);color:var(--te)">🛡️</div><h4>售后保障</h4><p>全程跟踪服务</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 16. Commitments ========== -->
+<section class="sec sec-w">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">commitments</span>
+      <h2 class="sec-h">五大承诺</h2>
+      <p class="sec-p">不只是提供服务，更是对每一位客户的郑重承诺</p>
+    </div>
+    <div class="cm-timeline rv">
+      <div class="cm-item"><div class="cm-num" style="background:var(--bl)">01</div><div class="cm-body"><h4>诚实评估</h4><p>根据企业实际情况，如实评估可行性，不夸大成功率，不隐瞒潜在风险</p></div></div>
+      <div class="cm-item"><div class="cm-num" style="background:var(--gn)">02</div><div class="cm-body"><h4>透明报价</h4><p>所有服务明码标价，无隐形收费，合同签订前费用清晰列示</p></div></div>
+      <div class="cm-item"><div class="cm-num" style="background:var(--gd)">03</div><div class="cm-body"><h4>专属顾问</h4><p>每位客户配备专属服务顾问，全程一对一跟进，响应及时</p></div></div>
+      <div class="cm-item"><div class="cm-num" style="background:var(--pu)">04</div><div class="cm-body"><h4>时限明确</h4><p>每个服务节点设定明确时限，进度实时同步，不拖延不推诿</p></div></div>
+      <div class="cm-item"><div class="cm-num" style="background:var(--rd)">05</div><div class="cm-body"><h4>售后保障</h4><p>服务完成后提供持续跟踪支持，遇到问题及时协助处理</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 17. Values ========== -->
+<section class="sec sec-g" id="values">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="sec-tag">culture</span>
+      <h2 class="sec-h">使命 <span class="hl">·</span> 愿景 <span class="hl">·</span> 价值观</h2>
+      <p class="sec-p">专业为本，客户至上，诚信务实，陪伴成长</p>
+    </div>
+    <div class="vl-split rv">
+      <div class="vl-c"><div class="vl-label">mission</div><h3>使命</h3><p>以专业服务赋能企业成长，以教育培养助力人才进阶</p></div>
+      <div class="vl-c"><div class="vl-label" style="color:var(--gn)">vision</div><h3>愿景</h3><p>成为最受信赖的企业综合服务与人才教育平台</p></div>
+      <div class="vl-c"><div class="vl-label" style="color:var(--gd)">values</div><h3>价值观</h3><p>专业为本 · 客户至上 · 诚信为本 · 持续创新</p></div>
+    </div>
+    <div class="pr-row rv r1">
+      <div class="pr-c"><div class="p-ch">专</div><h4>专业</h4><p>资深顾问团队<br>行业经验丰富</p></div>
+      <div class="pr-c"><div class="p-ch" style="background:var(--gn)">效</div><h4>高效</h4><p>流程标准化<br>响应速度快</p></div>
+      <div class="pr-c"><div class="p-ch" style="background:var(--gd)">诚</div><h4>诚信</h4><p>不夸大承诺<br>实事求是</p></div>
+      <div class="pr-c"><div class="p-ch" style="background:var(--pu)">伴</div><h4>陪伴</h4><p>全程跟踪服务<br>长期合作伙伴</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="ft">
+  <div class="container">
+    <div class="ft-g">
+      <div class="ft-brand"><h3>叶舟咨询</h3><p>北京叶舟方建信息咨询中心<br>专注企业服务 · 人才教育培养 · 共创商业价值</p></div>
+      <div class="ft-links"><h4>业务板块</h4><a href="#mm">高新认定</a><a href="#mm">专精特新</a><a href="#mm">信用修复</a><a href="#mm">政策补贴</a><a href="#mm">认证服务</a><a href="#mm">在职申硕</a></div>
+      <div class="ft-links"><h4>关于</h4><a href="#about">公司简介</a><a href="#values">企业文化</a><a href="#why">服务优势</a><a href="#pain">解决方案</a></div>
+    </div>
+    <div class="ft-b"><span>© 2026 北京叶舟方建信息咨询中心</span><span>服务区域：全国范围</span></div>
+  </div>
+</footer>
+
+<script>
+
+function toggleBiz(el){
+  var detail = el.querySelector('.mm-b-detail');
+  var isOpen = el.getAttribute('data-expanded') === 'true';
+  // Close all others
+  document.querySelectorAll('.mm-b').forEach(function(c){
+    if(c !== el){
+      c.setAttribute('data-expanded', 'false');
+      var d = c.querySelector('.mm-b-detail');
+      if(d) d.style.display = 'none';
+    }
+  });
+  // Toggle current
+  if(isOpen){
+    el.setAttribute('data-expanded', 'false');
+    detail.style.display = 'none';
+  } else {
+    el.setAttribute('data-expanded', 'true');
+    detail.style.display = 'block';
+  }
+}
+
+function runC(){
+  document.querySelectorAll('.cnt').forEach(el=>{const t=parseInt(el.dataset.target),s=performance.now();!function u(n){const p=Math.min((n-s)/2000,1);el.textContent=Math.floor((1-(1-p)**3)*t);p<1&&requestAnimationFrame(u)}(s)});
+  document.querySelectorAll('.h-stats .num').forEach(el=>{const t=parseInt(el.dataset.target),s=performance.now();!function u(n){const p=Math.min((n-s)/2000,1);el.textContent=Math.floor((1-(1-p)**3)*t);p<1&&requestAnimationFrame(u)}(s)})
+}
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{en.isIntersecting&&(en.target.classList.add('v'),en.target.closest('#about')&&runC())})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+setTimeout(runC,500);
+document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>20));
+document.querySelectorAll('.mm-n:not(.ct)').forEach((n,i)=>{n.style.animation=`f ${3+i%3*0.5}s ease-in-out ${i*0.15}s infinite`});
+const s=document.createElement('style');s.textContent=`@keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}.mm-n:not(.ct){animation:f 3s ease-in-out infinite}`;document.head.appendChild(s);
+document.querySelectorAll('.mm-n').forEach(n=>{n.addEventListener('mouseenter',function(){document.querySelectorAll('.mm-n:not(.ct):not(:hover)').forEach(nn=>nn.style.opacity='.35')});n.addEventListener('mouseleave',()=>document.querySelectorAll('.mm-n').forEach(n=>n.style.opacity='1'))});
+document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.08}px,${(e.clientY-r.top-r.height/2)*0.08}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+</script>
+</body>
+</html>
