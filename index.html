@@ -211,15 +211,21 @@ a{color:inherit;text-decoration:none}
 .pt-s h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:var(--s2)}
 .pt-s p{font-size:12.5px;color:var(--t2);line-height:1.6}
 
-/* ============== 6. SUBSIDY - split layout ============== */
-.sb-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.sb-c{background:var(--cd);border-radius:var(--r);padding:var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative;overflow:hidden}
-.sb-c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bl),var(--gd));opacity:0;transition:opacity var(--ds) var(--e)}
-.sb-c:hover::before{opacity:1}
-.sb-c:hover{transform:translateY(-3px);box-shadow:var(--sh-l)}
-.sb-c h4{font-size:14px;font-weight:650;color:var(--t1);margin-bottom:2px}
-.sb-sub{font-size:12.5px;color:var(--t3);margin-bottom:var(--s3)}
-.sb-detail{font-size:12.5px;color:var(--t2);line-height:1.65;padding:var(--s3);background:var(--su);border-radius:var(--r-sm);white-space:pre-line}
+/* ============== 6. SUBSIDY - trio cards ============== */
+.sb-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.sb-cc{background:var(--cd);border-radius:var(--r-lg);padding:var(--s8) var(--s6);border:1px solid var(--bd);transition:all var(--ds) var(--e);position:relative;overflow:hidden}
+.sb-cc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac,var(--bl));opacity:0.6}
+.sb-cc:hover{transform:translateY(-5px);box-shadow:var(--sh-xl);border-color:transparent}
+.sb-num{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;margin-bottom:var(--s4)}
+.sb-cc h4{font-size:15px;font-weight:700;color:var(--t1);margin-bottom:4px;transition:color var(--df)}
+.sb-cc:hover h4{color:var(--ac,var(--bl))}
+.sb-cc .sb-sub{font-size:12.5px;color:var(--t3);margin-bottom:var(--s4);line-height:1.5}
+.sb-cts{display:flex;flex-direction:column;gap:var(--s2)}
+.sb-cts span{font-size:13px;color:var(--t2);padding:var(--s2) var(--s3);background:var(--su);border-radius:var(--r-sm);line-height:1.5;transition:all var(--df)}
+.sb-cc:hover .sb-cts span{background:oklch(from var(--ac,var(--bl)) l c h / 0.04)}
+.sb-cts .sb-hl{color:#fff;background:var(--gn);font-weight:600}
+.sb-cts .sb-hl b{font-weight:800}
+.sb-cc:hover .sb-cts .sb-hl{background:color-mix(in oklch,var(--gn) 90%,#000)}
 .prj-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);margin-top:var(--s8)}
 .prj-c{text-align:center;padding:var(--s5);border-radius:var(--r);border:1px solid var(--bd);transition:all var(--ds) var(--e);background:var(--cd)}
 .prj-c:hover{transform:translateY(-3px);box-shadow:var(--sh-l);border-color:var(--bl)}
@@ -369,7 +375,8 @@ a{color:inherit;text-decoration:none}
   .nav{display:none}.mob-toggle{display:block}
   .nav.open{display:flex;flex-direction:column;position:absolute;top:var(--hh);left:0;right:0;background:oklch(0.97 0.005 82 / 0.98);backdrop-filter:blur(20px);padding:var(--s4);border-bottom:1px solid var(--bd)}
   .edu-trip{grid-template-columns:1fr 1fr}
-  .dd-r,.sb-split,.tm-split,.ct-split{grid-template-columns:1fr}
+  .dd-r,.tm-split,.ct-split{grid-template-columns:1fr}
+  .sb-trio{grid-template-columns:1fr}
   .kc-dual{grid-template-columns:1fr}
   .kc-bar{flex-direction:column;gap:var(--s3)}
   .kc-bar-div{width:100%;height:1px}
@@ -627,11 +634,36 @@ a{color:inherit;text-decoration:none}
       <h2 class="sec-h">政策类补贴</h2>
       <p class="sec-p">企业可享受的各项政府专项补贴，专业团队协助申报</p>
     </div>
-    <div class="sb-split rv">
-      <div class="sb-c"><h4>重点人群社保补贴</h4><div class="sb-sub">吸纳就业困难人员社保补贴</div><div class="sb-detail">最高每人每年7800元<br>额度抵扣，3年累计<br>申报条件宽松</div></div>
-      <div class="sb-c"><h4>岗位社保补贴</h4><div class="sb-sub">企业用工社保费用减免</div><div class="sb-detail">按实际招用人数<br>社保单位部分减免<br>最长3年期限</div></div>
-      <div class="sb-c"><h4>残疾人补贴</h4><div class="sb-sub">安置残疾人就业税收优惠</div><div class="sb-detail">按残疾人工资100%加计扣除<br>增值税即征即退<br>残保金减免</div></div>
-      <div class="sb-c"><h4>大学生补贴</h4><div class="sb-sub">吸纳高校毕业生就业补贴</div><div class="sb-detail">一次性扩岗补助<br>社保补贴支持<br>助力人才储备</div></div>
+    <div class="sb-trio rv">
+      <div class="sb-cc" style="--ac:var(--gn)">
+        <div class="sb-num" style="background:var(--gn)">01</div>
+        <h4>重点人群社保补贴</h4>
+        <div class="sb-sub">吸纳就业困难人员社保补贴</div>
+        <div class="sb-cts">
+          <span>最高每人每年7800元</span>
+          <span>额度抵扣，3年累计</span>
+          <span class="sb-hl">每人可享受最高<b>2.7万</b></span>
+        </div>
+      </div>
+      <div class="sb-cc" style="--ac:var(--bl)">
+        <div class="sb-num" style="background:var(--bl)">02</div>
+        <h4>岗位社保补贴</h4>
+        <div class="sb-sub">企业用工社保费用减免 · 扩岗补助</div>
+        <div class="sb-cts">
+          <span>按实际招用人数</span>
+          <span>社保单位部分减免</span>
+          <span>一次性扩岗补助</span>
+        </div>
+      </div>
+      <div class="sb-cc" style="--ac:var(--te)">
+        <div class="sb-num" style="background:var(--te)">03</div>
+        <h4>残疾人补贴</h4>
+        <div class="sb-sub">安置残疾人就业税收优惠</div>
+        <div class="sb-cts">
+          <span>残保金减免</span>
+          <span>增值税即征即退</span>
+        </div>
+      </div>
     </div>
     <div class="rv" style="text-align:center;margin-top:var(--s12);margin-bottom:var(--s6)"><span class="sec-tag">projects</span><h2 class="sec-h" style="font-size:22px">企业荣誉资质申报</h2></div>
     <div class="prj-row rv">
