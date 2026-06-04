@@ -370,6 +370,10 @@ a{color:inherit;text-decoration:none}
   .st-stair::before{display:none}
   .st-stair{grid-template-columns:repeat(2,1fr);gap:var(--s5)}
   .ft-g{grid-template-columns:1fr 1fr}
+  /* 移动端思维导图：缩小圆点尺寸 */
+  .mm{max-width:340px;margin:var(--s6) auto 0}
+  .mm-n{width:44px;height:44px;font-size:9px;padding:2px}
+  .mm-n.ct{width:56px;height:56px;font-size:11px}
 }
 @media(max-width:768px){
   .nav{display:none}.mob-toggle{display:block}
@@ -393,6 +397,11 @@ a{color:inherit;text-decoration:none}
   .cm-timeline::before{display:none}
   .mm-row-b,.mm-row-b.dual{grid-template-columns:1fr}
   .mm-conn{display:none}
+}
+@media(max-width:480px){
+  .mm{max-width:280px}
+  .mm-n{width:38px;height:38px;font-size:8px;padding:1px}
+  .mm-n.ct{width:48px;height:48px;font-size:10px}
 }
 </style>
 </head>
